@@ -11,11 +11,10 @@ Source1:	wmsensors.desktop
 BuildRequires:	XFree86-devel
 BuildRequires:	xpm-devel
 BuildRequires:	lm_sensors-devel >= 2.0
-BuildRoot: 	/var/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_prefix 	/usr/X11R6
 %define 	_mandir 	%{_prefix}/man
-%define		_applnkdir	%{_datadir}/applnk
 
 %description
 This application docks into the Window Maker dock and draws graphs of data
