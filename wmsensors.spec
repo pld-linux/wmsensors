@@ -10,7 +10,7 @@ Source0: 	http://users.ox.ac.uk/~kebl0850/wmlm78/%{name}-%{version}.tar.gz
 Source1:	wmsensors.desktop
 BuildPrereq:	XFree86-devel
 BuildPrereq:	xpm-devel
-BuildPrereq:	lm_sensors >= 2.0
+BuildPrereq:	lm_sensors-devel >= 2.0
 BuildRoot: 	/var/tmp/%{name}-%{version}-root
 
 %define _prefix /usr/X11R6
