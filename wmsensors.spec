@@ -15,6 +15,7 @@ BuildRoot: 	/var/tmp/%{name}-%{version}-root
 
 %define 	_prefix 	/usr/X11R6
 %define 	_mandir 	%{_prefix}/man
+%define		_applnkdir	%{_datadir}/applnk
 
 %description
 This application docks into the Window Maker dock and draws graphs of data
@@ -34,15 +35,15 @@ make CDEBUGFLAGS="$RPM_OPT_FLAGS"
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
-	$RPM_BUILD_ROOT/usr/X11R6/share/applnk/DockApplets
+	$RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 make install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	MANDIR=%{_mandir}/man1 \
 	BINDIR=%{_bindir}
 
-install wmsensors.1x $RPM_BUILD_ROOT/usr/X11R6/man/man1
-install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/DockApplets
+install wmsensors.1x $RPM_BUILD_ROOT%{_mandir}/man1
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	FAQ TODO *README Changes
@@ -53,7 +54,7 @@ gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 %attr(755,root,root) %{_bindir}/wmsensors
 %{_mandir}/man1/wmsensors.1x.gz
 
-/usr/X11R6/share/applnk/DockApplets/wmsensors.desktop
+%{_applnkdir}/DockApplets/wmsensors.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT
