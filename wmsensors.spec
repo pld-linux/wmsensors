@@ -34,7 +34,7 @@ make CDEBUGFLAGS="$RPM_OPT_FLAGS"
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
-	$RPM_BUILD_ROOT/etc/X11/applnk/DockApplets
+	$RPM_BUILD_ROOT/usr/X11R6/share/applnk/DockApplets
 
 make install \
 	DESTDIR=$RPM_BUILD_ROOT \
@@ -42,7 +42,7 @@ make install \
 	BINDIR=%{_bindir}
 
 install wmsensors.1x $RPM_BUILD_ROOT/usr/X11R6/man/man1
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/DockApplets
+install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/DockApplets
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	FAQ TODO *README Changes
@@ -53,7 +53,7 @@ gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 %attr(755,root,root) %{_bindir}/wmsensors
 %{_mandir}/man1/wmsensors.1x.gz
 
-/etc/X11/applnk/DockApplets/wmsensors.desktop
+/usr/X11R6/share/applnk/DockApplets/wmsensors.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT
