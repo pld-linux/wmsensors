@@ -51,4 +51,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc FAQ TODO *README Changes
 %attr(755,root,root) %{_bindir}/wmsensors
 %{_mandir}/man1/wmsensors.1x*
-#%{_applnkdir}/DockApplets/wmsensors.desktop
+#%%{_applnkdir}/DockApplets/wmsensors.desktop
