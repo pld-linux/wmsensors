@@ -45,11 +45,11 @@ install wmsensors.1x $RPM_BUILD_ROOT/usr/X11R6/man/man1
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/DockApplets
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
-	FAQ TODO *.README Changes
+	FAQ TODO *README Changes
 
 %files
 %defattr(644,root,root,755)
-%doc {FAQ,TODO,*.README,BACKGROUND,BUGS,Changes,}.gz
+%doc {FAQ,TODO,*README,Changes}.gz
 %attr(755,root,root) %{_bindir}/wmsensors
 %{_mandir}/man1/wmsensors.1x.gz
 
