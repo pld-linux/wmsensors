@@ -8,9 +8,9 @@ Group: 		X11/Window Managers/Tools
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Source0: 	http://users.ox.ac.uk/~kebl0850/wmlm78/%{name}-%{version}.tar.gz
 Source1:	wmsensors.desktop
-BuildPrereq:	XFree86-devel
-BuildPrereq:	xpm-devel
-BuildPrereq:	lm_sensors-devel >= 2.0
+BuildRequires:	XFree86-devel
+BuildRequires:	xpm-devel
+BuildRequires:	lm_sensors-devel >= 2.0
 BuildRoot: 	/var/tmp/%{name}-%{version}-root
 
 %define _prefix /usr/X11R6
