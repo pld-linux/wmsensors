@@ -13,8 +13,8 @@ BuildRequires:	xpm-devel
 BuildRequires:	lm_sensors-devel >= 2.0
 BuildRoot: 	/var/tmp/%{name}-%{version}-root
 
-%define _prefix /usr/X11R6
-%define _mandir %{_prefix}/man
+%define 	_prefix 	/usr/X11R6
+%define 	_mandir 	%{_prefix}/man
 
 %description
 This application docks into the Window Maker dock and draws graphs of data
