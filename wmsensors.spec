@@ -5,8 +5,6 @@ Version:	1.0.3
 Release:	2
 License:	GPL
 Group:		X11/Window Managers/Tools
-Group(de):	X11/Fenstermanager/Werkzeuge
-Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Source0:	http://users.ox.ac.uk/~kebl0850/wmlm78/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 BuildRequires:	XFree86-devel
