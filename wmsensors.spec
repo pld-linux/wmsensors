@@ -12,8 +12,6 @@ BuildRequires:	XFree86-devel
 BuildRequires:	lm_sensors-devel >= 2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define 	_prefix 	/usr/X11R6
-%define 	_mandir 	%{_prefix}/man
 
 %description
 This application docks into the Window Maker dock and draws graphs of
