@@ -1,41 +1,59 @@
-Summary: wmsensors draws graphs of data using CPU sensors
-%define version 1.0.3
-Name: wmsensors
-Version: %{version}
-Release: 1
-Copyright: GPL
-Group: X Windows/Window Managers
-Source: http://users.ox.ac.uk/~kebl0850/wmlm78/%{name}-%{version}.tar.gz
-Packager: Adrian Baugh <adrian.baugh@keb.ox.ac.uk>
-BuildRoot: /var/tmp/%{name}-root
-Requires: lm_sensors >= 2.0
+Summary: 	wmsensors draws graphs of data using CPU sensors
+Summary(pl):	wmsensors przedstawia graficznie dane z czujników CPU
+Name: 		wmsensors
+Version: 	1.0.3
+Release: 	2
+Copyright: 	GPL
+Group: 		X11/Window Managers/Tools
+Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
+Source0: 	http://users.ox.ac.uk/~kebl0850/wmlm78/%{name}-%{version}.tar.gz
+Source1:	wmsensors.desktop
+BuildPrereq:	XFree86-devel
+BuildPrereq:	xpm-devel
+BuildPrereq:	lm_sensors >= 2.0
+BuildRoot: 	/var/tmp/%{name}-%{version}-root
+
+%define _prefix /usr/X11R6
+%define _mandir %{_prefix}/man
 
 %description
 This application docks into the Window Maker dock and draws graphs of data
 obtained from the sensors kernel module via a userspace library.
 
+%description -l pl
+Aplikacja przeznaczona dla Doku WindowMakera, przedtstawia w postaci
+graficznej dane uzyskane z czujników procesora przez modu³ kernela.
+
 %prep
-cd /usr/src/redhat/BUILD
-rm -rf %{name}
-tar zxvf ../SOURCES/%{name}-%{version}.tar.gz
+%setup -q -n %{name}
 
 %build
-cd /usr/src/redhat/BUILD/wmsensors
 xmkmf
-make
+make CDEBUGFLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/usr/X11R6/{bin,man/man1}
-cd /usr/src/redhat/BUILD/wmsensors
-make DESTDIR=$RPM_BUILD_ROOT/usr/X11R6 install
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
+	$RPM_BUILD_ROOT/etc/X11/applnk/DockApplets
+
+make install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	MANDIR=%{_mandir}/man1 \
+	BINDIR=%{_bindir}
+
 install wmsensors.1x $RPM_BUILD_ROOT/usr/X11R6/man/man1
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/DockApplets
+
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
+	FAQ TODO *.README Changes
 
 %files
-%defattr(-,root,root)
-/usr/X11R6/bin/%{name}
-/usr/X11R6/man/man1/%{name}.1x
-%doc COPYING FAQ INSTALL TODO sensor-modules.README wmsensors.README
+%defattr(644,root,root,755)
+%doc {FAQ,TODO,*.README,BACKGROUND,BUGS,Changes,}.gz
+%attr(755,root,root) %{_bindir}/wmsensors
+%{_mandir}/man1/wmsensors.1x.gz
+
+/etc/X11/applnk/DockApplets/wmsensors.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT
