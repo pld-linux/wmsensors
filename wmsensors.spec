@@ -38,7 +38,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
 	DESTDIR=$RPM_BUILD_ROOT \
 	MANDIR=%{_mandir}/man1 \
 	BINDIR=%{_bindir}
-%{__make} DESTDIR=$RPM_BUILD_ROOT install.man
+%{__make} DESTDIR=$RPM_BUILD_ROOT MANPATH=%{_mandir} install.man
 
 #install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
