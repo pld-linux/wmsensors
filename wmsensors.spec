@@ -6,6 +6,7 @@ Release:	2
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://users.ox.ac.uk/~kebl0850/wmlm78/%{name}-%{version}.tar.gz
+# Source0-md5:	7e9805f46151db0ea6adb2abd6e3ae8f
 Source1:	%{name}.desktop
 BuildRequires:	XFree86-devel
 BuildRequires:	lm_sensors-devel >= 2.0
