@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=wmsensors
+Comment=Hardware monitor
+Comment[pl]=Monitor sprzêtu
+Exec=wmsensors
+Terminal=0
+Type=Application
