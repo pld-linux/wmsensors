@@ -39,12 +39,3 @@ install wmsensors.1x $RPM_BUILD_ROOT/usr/X11R6/man/man1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%changelog
-* Mon May 17 1999 Adrian Baugh <adrian.baugh@keb.ox.ac.uk>
-
-- updated to wmsensors-1.0.3; removed an obsolete reference (sensors.less.sh)
-
-* Thu Feb 25 1999 Ian Macdonald <ianmacd@xs4all.nl>
-
-- first RPM release
