@@ -26,21 +26,22 @@ graficznej dane uzyskane przez modu³ kernela z czujników procesora.
 %setup -q -n %{name}
 
 %build
+mv wmsensors.1x wmsensors.man
 xmkmf
 %{__make} CDEBUGFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
-#	$RPM_BUILD_ROOT%{_applnkdir}/DockApplets
+	$RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	MANDIR=%{_mandir}/man1 \
 	BINDIR=%{_bindir}
+%{__make} DESTDIR=$RPM_BUILD_ROOT install.man
 
-install wmsensors.1x $RPM_BUILD_ROOT%{_mandir}/man1
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
+#install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 %clean
 rm -rf $RPM_BUILD_ROOT
