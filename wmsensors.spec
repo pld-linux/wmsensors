@@ -1,5 +1,5 @@
 Summary:	wmsensors draws graphs of data using CPU sensors
-Summary(pl):	wmsensors przedstawia graficznie dane z czujnikÛw CPU
+Summary(pl.UTF-8):   wmsensors przedstawia graficznie dane z czujnik√≥w CPU
 Name:		wmsensors
 Version:	1.0.3
 Release:	2
@@ -17,9 +17,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This application docks into the Window Maker dock and draws graphs of
 data obtained from the sensors kernel module via a userspace library.
 
-%description -l pl
+%description -l pl.UTF-8
 Aplikacja przeznaczona dla Doku WindowMakera, przedstawia w postaci
-graficznej dane uzyskane przez modu≥ kernela z czujnikÛw procesora.
+graficznej dane uzyskane przez modu≈Ç kernela z czujnik√≥w procesora.
 
 %prep
 %setup -q -n %{name}
