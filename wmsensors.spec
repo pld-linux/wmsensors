@@ -1,5 +1,5 @@
 Summary:	wmsensors draws graphs of data using CPU sensors
-Summary(pl.UTF-8):   wmsensors przedstawia graficznie dane z czujników CPU
+Summary(pl.UTF-8):	wmsensors przedstawia graficznie dane z czujników CPU
 Name:		wmsensors
 Version:	1.0.3
 Release:	2
